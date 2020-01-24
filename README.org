@@ -1,0 +1,29 @@
+#+begin_html
+<h1 align="center">Fortune Plus</h1>
+<p align="center">
+  <a href="https://www.gnu.org/licenses/gpl-3.0">
+    <img src="https://img.shields.io/badge/License-GPL%20v3-blue.svg" alt="GNU General Public License Version 3.0">
+  </a>
+</p>
+#+end_html
+
+
+Improved version of the original homebrew formula.
+
+** Installation
+#+begin_src bash
+brew tap daviderestivo/fortune-plus
+brew install fortune-plus
+#+end_src
+
+** Installation options
+The following installation options are available:
+
+| Option                        | Description                                                      |
+|-------------------------------+------------------------------------------------------------------|
+| ~--with-offensive~              | Include fortune files containing potentionally offensive cookies |
+| ~--with-fortune-woody-allen-it~ | Include fortune files in Italian language                        |
+| ~--with-fortne-it~              | Include fortune files of Woody Allen quotes in Italian language  |
+
+** Collaborating
+If you are interested in collaborating please open a Pull Request.
