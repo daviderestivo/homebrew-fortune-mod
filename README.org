@@ -23,7 +23,7 @@ The following installation options are available:
 |-------------------------------+------------------------------------------------------------------|
 | ~--with-offensive~              | Include fortune files containing potentionally offensive cookies |
 | ~--with-fortune-woody-allen-it~ | Include fortune files in Italian language                        |
-| ~--with-fortne-it~              | Include fortune files of Woody Allen quotes in Italian language  |
+| ~--with-fortune-it~             | Include fortune files of Woody Allen quotes in Italian language  |
 
 ** Collaborating
 If you are interested in collaborating please open a Pull Request.
