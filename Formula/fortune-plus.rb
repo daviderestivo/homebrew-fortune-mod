@@ -85,14 +85,14 @@ class FortunePlus < Formula
     fortunes_offensive_install_dir = share/"games/fortunes/off"
 
     Dir.each_child(fortunes_install_dir) do |filename|
-      if not filename.end_with? ".dat"
+      if (not filename.end_with? ".dat") and (filename != "off")
         system("strfile", fortunes_install_dir + filename)
       end
     end
     if build.with? "offensive"
       Dir.each_child(fortunes_offensive_install_dir) do |filename|
         if not filename.end_with? ".dat"
-          system("strfile", fortunes_offensive_install_dir + filename)
+          system("strfile", "-x", fortunes_offensive_install_dir + filename)
         end
       end
     end
