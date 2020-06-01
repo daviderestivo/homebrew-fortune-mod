@@ -1,5 +1,5 @@
 #+begin_html
-<h1 align="center">Fortune Plus</h1>
+<h1 align="center">Fortune Mod</h1>
 <p align="center">
   <a href="https://www.gnu.org/licenses/gpl-3.0">
     <img src="https://img.shields.io/badge/License-GPL%20v3-blue.svg" alt="GNU General Public License Version 3.0">
@@ -8,12 +8,12 @@
 #+end_html
 
 
-Improved version of the original homebrew formula.
+This formula is based on [[https://github.com/shlomif/fortune-mod][fortune-mod 2.x]] currently maintained by [[https://www.shlomifish.org][Shlomi Fish]].
 
 ** Installation
 #+begin_src bash
-brew tap daviderestivo/fortune-plus
-brew install fortune-plus
+brew tap daviderestivo/fortune-mod
+brew install fortune-mod
 #+end_src
 
 ** Installation options

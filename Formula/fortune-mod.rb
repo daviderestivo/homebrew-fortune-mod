@@ -1,9 +1,14 @@
-class FortunePlus < Formula
-  desc "Infamous electronic fortune-cookie generator"
-  homepage "https://www.ibiblio.org/pub/linux/games/amusements/fortune/!INDEX.html"
-  url "https://www.ibiblio.org/pub/linux/games/amusements/fortune/fortune-mod-9708.tar.gz"
-  mirror "https://src.fedoraproject.org/repo/pkgs/fortune-mod/fortune-mod-9708.tar.gz/81a87a44f9d94b0809dfc2b7b140a379/fortune-mod-9708.tar.gz"
-  sha256 "1a98a6fd42ef23c8aec9e4a368afb40b6b0ddfb67b5b383ad82a7b78d8e0602a"
+class FortuneMod < Formula
+  desc "Implementation of the Unix fortune command for displaying a random quotation, for Linux and other systems"
+  homepage "https://github.com/shlomif/fortune-mod"
+  url "https://www.shlomifish.org/open-source/projects/fortune-mod/arcs/fortune-mod-2.26.0.tar.xz"
+  mirror "https://src.fedoraproject.org/lookaside/extras/fortune-mod/fortune-mod-2.26.0.tar.xz/sha512/045fb28e250bb1c9f64681c514c294bf74af0d774bc72a51efc32b1574da6c9ca8ad1c8efc7cd38fe420246ec45860f5a753f19e688bf0fc1179fba65fc5ba18/fortune-mod-2.26.0.tar.xz"
+  sha256 "bd9096933760eff705407b34eec61815cd942ceff6ef00aca8bc1cf5620fb0a9"
+
+  depends_on "cmake"      => :build
+  depends_on "pkg-config" => :build
+  depends_on "rinutils"
+  depends_on "recode"
 
   option "with-offensive",
          "Include fortune files containing potentionally offensive cookies"
@@ -15,7 +20,7 @@ class FortunePlus < Formula
 
   if build.with? "fortune-woody-allen-it"
     resource "fortune-woody-allen-it" do
-      url "https://raw.githubusercontent.com/daviderestivo/homebrew-fortune-plus/master/files/fortune-mod-woody-allen-it-0.2.tgz"
+      url "https://raw.githubusercontent.com/daviderestivo/homebrew-fortune-mod/master/files/fortune-mod-woody-allen-it-0.2.tgz"
       sha256 "c54d8a25d63a47de075317ad031f09a9537cc6ced25ad7f6faf090e9a68664c6"
     end
   end
@@ -41,31 +46,23 @@ class FortunePlus < Formula
 
   def install
     # Initialize fortunes install paths
-    fortunes_install_dir = share/"games/fortunes"
-    fortunes_offensive_install_dir = share/"games/fortunes/off"
+    fortunes_install_dir = prefix/"local/share/games/fortunes"
+    fortunes_offensive_install_dir = prefix/"local/share/games/fortunes/off"
 
-    ENV.deparallelize
+    args = std_cmake_args
 
-    inreplace "Makefile" do |s|
-      # Use our selected compiler
-      s.change_make_var! "CC", ENV.cc
-
-      # Change these first two folders to the correct location in /usr/local...
-      s.change_make_var! "FORTDIR", "/usr/local/bin"
-      s.gsub! "/usr/local/man", "/usr/local/share/man"
-      # Now change all /usr/local at once to the prefix
-      s.gsub! "/usr/local", prefix
-
-      # macOS only supports POSIX regexes
-      s.change_make_var! "REGEXDEFS", "-DHAVE_REGEX_H -DPOSIX_REGEX"
-
-      # Do we want to install the offensive files? (0 no, 1 yes)
-      if build.without? "offensive"
-        s.gsub! "OFFENSIVE=1", "OFFENSIVE=0"
-      end
+    # Do we want to install the offensive files? (0 no, 1 yes)
+    if build.without? "offensive"
+      args << "-DNO_OFFENSIVE=ON"
     end
 
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", *args
+      system "make"
+      system "make", "install"
+
+      bin.install_symlink prefix/"games/fortune"
+    end
 
     # fortune-woody-allen-it
     if build.with? "fortune-woody-allen-it"
@@ -95,8 +92,8 @@ class FortunePlus < Formula
 
   def post_install
     # Initialize fortunes install paths
-    fortunes_install_dir = share/"games/fortunes"
-    fortunes_offensive_install_dir = share/"games/fortunes/off"
+    fortunes_install_dir = prefix/"local/share/games/fortunes"
+    fortunes_offensive_install_dir = prefix/"local/share/games/fortunes/off"
 
     Dir.each_child(fortunes_install_dir) do |filename|
       if (not filename.end_with? ".dat") and (filename != "off")
