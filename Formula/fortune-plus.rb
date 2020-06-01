@@ -12,7 +12,7 @@ class FortunePlus < Formula
   option "with-fortune-woody-allen-it",
          "Include fortune files of Woody Allen quotes in Italian language"
 
-  
+
   if build.with? "fortune-woody-allen-it"
     resource "fortune-woody-allen-it" do
       url "https://raw.githubusercontent.com/daviderestivo/homebrew-fortune-plus/master/files/fortune-mod-woody-allen-it-0.2.tgz"
@@ -25,6 +25,18 @@ class FortunePlus < Formula
       url "http://www.fortune-it.net/download/fortune-it-1.99.tar.gz"
       sha256 "f282626904701671d814411665e42edcd3257df8b6f1244993cc014424fa7e6c"
     end
+  end
+
+  def rot13(filename)
+    # Open the source file in read mode and read it ...
+    file = File.open(filename, "r")
+    content = file.read()
+    # ... rot13 the file ...
+    rot13 = content.tr("a-z", "n-za-m")
+    # ... re-open file in write mode and write to it.
+    file = File.open(filename, "w")
+    file.write(rot13)
+    file.close()
   end
 
   def install
@@ -67,12 +79,14 @@ class FortunePlus < Formula
     if build.with? "fortune-it"
       fortunes_files = "testi/*"
       resource("fortune-it").stage do
-        if build.with? "offensive"
-          # Install both offensive and not
+        if build.with? "offensive" # Install both offensive and not
+          Dir[fortunes_files].grep(/(-o)$/) do |filename|
+            # rot13 all offensive fortunes before installing them
+            rot13(filename)
+          end
           fortunes_install_dir.install Dir[fortunes_files].grep(/^((?!-o).)*$/)
           fortunes_offensive_install_dir.install Dir[fortunes_files].grep(/(-o)$/)
-        else
-          # Install only not offensive
+        else # Install only not offensive
           fortunes_install_dir.install Dir[fortunes_files].grep(/^((?!-o).)*$/)
         end
       end
