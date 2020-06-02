@@ -51,7 +51,7 @@ class FortuneMod < Formula
 
     args = std_cmake_args
 
-    # Do we want to install the offensive files? (0 no, 1 yes)
+    # Do we want to install the offensive files? (ON => no, OFF => yes)
     if build.without? "offensive"
       args << "-DNO_OFFENSIVE=ON"
     end
