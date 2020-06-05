@@ -20,8 +20,8 @@ class FortuneMod < Formula
 
   if build.with? "fortune-woody-allen-it"
     resource "fortune-woody-allen-it" do
-      url "https://raw.githubusercontent.com/daviderestivo/homebrew-fortune-mod/master/files/fortune-mod-woody-allen-it-0.2.tgz"
-      sha256 "c54d8a25d63a47de075317ad031f09a9537cc6ced25ad7f6faf090e9a68664c6"
+      url "https://github.com/daviderestivo/fortune-mod-woody-allen-it/archive/v0.2.tar.gz"
+      sha256 "b20b51ba9a116b49f532d0a3916dcb7226f8d5118788a084a59882c2580f5476"
     end
   end
 
