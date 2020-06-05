@@ -21,7 +21,7 @@ class FortuneMod < Formula
   if build.with? "fortune-woody-allen-it"
     resource "fortune-woody-allen-it" do
       url "https://github.com/daviderestivo/fortune-mod-woody-allen-it/archive/v0.2.tar.gz"
-      sha256 "b20b51ba9a116b49f532d0a3916dcb7226f8d5118788a084a59882c2580f5476"
+      sha256 "1f7ba6c0609a7d73f0fe77159ac41d45f9669ce14597def78e6512be4e61d0df"
     end
   end
 
