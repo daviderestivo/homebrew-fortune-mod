@@ -27,7 +27,7 @@ class FortuneMod < Formula
 
   if build.with? "fortune-it"
     resource "fortune-it" do
-      url "http://www.fortune-it.net/download/fortune-it-1.99.tar.gz"
+      url "https://www.ibiblio.org/pub/Linux/games/amusements/fortune/fortune-it-1.99.tar.gz"
       sha256 "f282626904701671d814411665e42edcd3257df8b6f1244993cc014424fa7e6c"
     end
   end
