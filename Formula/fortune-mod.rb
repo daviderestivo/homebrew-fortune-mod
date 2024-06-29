@@ -1,9 +1,12 @@
 class FortuneMod < Formula
   desc "Implementation of the Unix fortune command for displaying a random quotation, for Linux and other systems"
   homepage "https://github.com/shlomif/fortune-mod"
-  url "https://www.shlomifish.org/open-source/projects/fortune-mod/arcs/fortune-mod-2.26.0.tar.xz"
-  mirror "https://src.fedoraproject.org/lookaside/extras/fortune-mod/fortune-mod-2.26.0.tar.xz/sha512/045fb28e250bb1c9f64681c514c294bf74af0d774bc72a51efc32b1574da6c9ca8ad1c8efc7cd38fe420246ec45860f5a753f19e688bf0fc1179fba65fc5ba18/fortune-mod-2.26.0.tar.xz"
-  sha256 "bd9096933760eff705407b34eec61815cd942ceff6ef00aca8bc1cf5620fb0a9"
+  url "https://www.shlomifish.org/open-source/projects/fortune-mod/arcs/fortune-mod-3.20.0.tar.xz"
+  mirror "https://src.fedoraproject.org/lookaside/extras/fortune-mod/fortune-mod-3.20.0.tar.xz/sha512/4ce1111c73f087ed899e4796ac9c15f85fa7262e08f1a81162fcc37757d4ecd1f234d3c2c362a264c07ae45d68ec2299d4870c7b348cc0bbeb7db3b170ba0ded/fortune-mod-3.20.0.tar.xz"
+  sha256 "3101be95fb89c4848d483e72930da8d03f6925737a23d78803d6b55c42fe2094"
+  license "BSD-4-Clause"
+  version "3.20.0"
+  revision 1
 
   depends_on "cmake"      => :build
   depends_on "pkg-config" => :build
