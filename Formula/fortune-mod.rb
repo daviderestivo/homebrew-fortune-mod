@@ -49,8 +49,8 @@ class FortuneMod < Formula
 
   def install
     # Initialize fortunes install paths
-    fortunes_install_dir = prefix/"local/share/games/fortunes"
-    fortunes_offensive_install_dir = prefix/"local/share/games/fortunes/off"
+    fortunes_install_dir = prefix/"share/games/fortunes"
+    fortunes_offensive_install_dir = prefix/"share/games/fortunes/off"
 
     args = std_cmake_args
 
@@ -95,8 +95,8 @@ class FortuneMod < Formula
 
   def post_install
     # Initialize fortunes install paths
-    fortunes_install_dir = prefix/"local/share/games/fortunes"
-    fortunes_offensive_install_dir = prefix/"local/share/games/fortunes/off"
+    fortunes_install_dir = prefix/"share/games/fortunes"
+    fortunes_offensive_install_dir = prefix/"share/games/fortunes/off"
 
     Dir.each_child(fortunes_install_dir) do |filename|
       if (not filename.end_with? ".dat") and (filename != "off")
