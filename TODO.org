@@ -1,26 +1,33 @@
 * TODO Add mirror to all fortune files
 [2020-05-24 Sun 21:20]
 To avoid issue in case the files simply disappear from the web
+
 * TODO Add math-fortune-mode
 [2020-05-24 Sun 21:06]
 Link: https://github.com/maxieds/math-fortune-mod
+
 * TODO Add ruanyf/fortunes
 [2020-05-24 Sun 21:08]
 Link: https://github.com/ruanyf/fortunes
+
 * TODO Add bmc/fortunes
 [2020-05-24 Sun 21:09]
 Link: https://github.com/bmc/fortunes
+
 * TODO Add fortune shlomifish
 [2020-05-24 Sun 21:11]
 Link: https://www.shlomifish.org/humour/fortunes/
 
 Look at the "Other Fortune Cookies Collections"
+
 * TODO Add showerthoughts
 [2020-05-24 Sun 21:14]
 Link: https://nullprogram.com/blog/2016/12/01/
+
 * TODO Add Homestuck fortune file
 [2020-05-24 Sun 21:20]
 Link: https://www.bgreco.net/hsquote/fortune/
+
 * TODO Add pkgs.com
 [2020-05-24 Sun 21:27]
 Link: https://pkgs.org/search/?q=fortune
