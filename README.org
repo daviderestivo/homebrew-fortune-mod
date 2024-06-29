@@ -8,7 +8,7 @@
 #+end_html
 
 
-This formula is based on [[https://github.com/shlomif/fortune-mod][fortune-mod 2.x]] currently maintained by [[https://www.shlomifish.org][Shlomi Fish]].
+This formula is based on [[https://github.com/shlomif/fortune-mod][fortune-mod]] currently maintained by [[https://www.shlomifish.org][Shlomi Fish]].
 
 ** Installation
 #+begin_src bash
