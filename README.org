@@ -19,11 +19,11 @@ brew install fortune-mod
 ** Installation options
 The following installation options are available:
 
-| Option                        | Description                                                      |
-|-------------------------------+------------------------------------------------------------------|
-| ~--with-offensive~              | Include fortune files containing potentionally offensive cookies |
-| ~--with-fortune-woody-allen-it~ | Include fortune files in Italian language                        |
-| ~--with-fortune-it~             | Include fortune files of Woody Allen quotes in Italian language  |
+| Option                            | Description                                                      |
+|-----------------------------------+------------------------------------------------------------------|
+| ~--with-offensive~                  | Include fortune files containing potentionally offensive cookies |
+| ~--with-fortune-mod-woody-allen-it~ | Include fortune files in Italian language                        |
+| ~--with-fortune-mod-it~             | Include fortune files of Woody Allen quotes in Italian language  |
 
 ** Collaborating
 If you are interested in collaborating please open a Pull Request.

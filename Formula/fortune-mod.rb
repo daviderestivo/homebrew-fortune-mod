@@ -15,21 +15,21 @@ class FortuneMod < Formula
 
   option "with-offensive",
          "Include fortune files containing potentionally offensive cookies"
-  option "with-fortune-it",
+  option "with-fortune-mod-it",
          "Include fortune files in Italian language"
-  option "with-fortune-woody-allen-it",
+  option "with-fortune-mod-woody-allen-it",
          "Include fortune files of Woody Allen quotes in Italian language"
 
 
-  if build.with? "fortune-woody-allen-it"
-    resource "fortune-woody-allen-it" do
+  if build.with? "fortune-mod-woody-allen-it"
+    resource "fortune-mod-woody-allen-it" do
       url "https://github.com/daviderestivo/fortune-mod-woody-allen-it/archive/v0.2.tar.gz"
       sha256 "1f7ba6c0609a7d73f0fe77159ac41d45f9669ce14597def78e6512be4e61d0df"
     end
   end
 
-  if build.with? "fortune-it"
-    resource "fortune-it" do
+  if build.with? "fortune-mod-it"
+    resource "fortune-mod-it" do
       url "https://www.ibiblio.org/pub/Linux/games/amusements/fortune/fortune-it-1.99.tar.gz"
       sha256 "f282626904701671d814411665e42edcd3257df8b6f1244993cc014424fa7e6c"
     end
@@ -67,18 +67,18 @@ class FortuneMod < Formula
       bin.install_symlink prefix/"games/fortune"
     end
 
-    # fortune-woody-allen-it
-    if build.with? "fortune-woody-allen-it"
+    # fortune-mod-woody-allen-it
+    if build.with? "fortune-mod-woody-allen-it"
       fortunes_files = "files/*"
-      resource("fortune-woody-allen-it").stage do
+      resource("fortune-mod-woody-allen-it").stage do
         fortunes_install_dir.install Dir[fortunes_files]
       end
     end
 
-    # fortune-it
-    if build.with? "fortune-it"
+    # fortune-mod-it
+    if build.with? "fortune-mod-it"
       fortunes_files = "testi/*"
-      resource("fortune-it").stage do
+      resource("fortune-mod-it").stage do
         if build.with? "offensive" # Install both offensive and not
           Dir[fortunes_files].grep(/(-o)$/) do |filename|
             # rot13 all offensive fortunes before installing them
