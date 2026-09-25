@@ -52,6 +52,10 @@ class FortuneMod < Formula
     fortunes_install_dir = prefix/"share/games/fortunes"
     fortunes_offensive_install_dir = prefix/"share/games/fortunes/off"
 
+    # Set PERL5LIB to include docmake's Perl modules (Path::Tiny, etc.)
+    # These are needed by fortmod_gen_manpage.pl for man page generation
+    ENV.prepend_path "PERL5LIB", "#{Formula["docmake"].opt_libexec}/lib/perl5"
+
     args = std_cmake_args
 
     # Do we want to install the offensive files? (ON => no, OFF => yes)
