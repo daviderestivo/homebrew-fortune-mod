@@ -9,6 +9,7 @@ class FortuneMod < Formula
 
   depends_on "cmake"      => :build
   depends_on "pkg-config" => :build
+  depends_on "docmake"    => :build
   depends_on "rinutils"
   depends_on "recode"
 
