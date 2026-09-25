@@ -1,10 +1,10 @@
 class FortuneMod < Formula
   desc "Implementation of the Unix fortune command for displaying a random quotation, for Linux and other systems"
   homepage "https://github.com/shlomif/fortune-mod"
-  url "https://www.shlomifish.org/open-source/projects/fortune-mod/arcs/fortune-mod-3.22.0.tar.xz"
-  sha256 "069321bb4d4ae3abf55493d043cea06534dc93f1a2c29e86694d9edb1380a0e3"
+  url "https://www.shlomifish.org/open-source/projects/fortune-mod/arcs/fortune-mod-3.26.0.tar.xz"
+  sha256 "ac4d1486cac9b999049107136b94106fe98a4aeac00ec635b144c43764bffe4c"
   license "BSD-4-Clause"
-  version "3.22.0"
+  version "3.26.0"
   revision 1
 
   depends_on "cmake"      => :build
