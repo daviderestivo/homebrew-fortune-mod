@@ -17,7 +17,7 @@ class Docmake < Formula
 
   # File update checker
   resource "File::ShouldUpdate" do
-    url "https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/File-ShouldUpdate-0.0.3.tar.gz"
+    url "https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/File-ShouldUpdate-v0.0.3.tar.gz"
     sha256 "014a70c6c4993d31bc7e150045b3ce8abcc9acfc01522eba6d48d9758d27a5ec"
   end
 
