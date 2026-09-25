@@ -5,13 +5,16 @@ class FortuneMod < Formula
   sha256 "ac4d1486cac9b999049107136b94106fe98a4aeac00ec635b144c43764bffe4c"
   license "BSD-4-Clause"
   version "3.26.0"
-  revision 1
+  revision 2
 
   depends_on "cmake"      => :build
   depends_on "pkg-config" => :build
   depends_on "docmake"    => :build
   depends_on "rinutils"
-  depends_on "recode"
+  # Note: recode is intentionally not included as a dependency.
+  # On macOS, recode 3.7.x has a charset aliasing conflict (WINDOWS-874/CP874)
+  # that causes fortune to segfault at startup. Fortune works fine without
+  # recode - it just won't do automatic charset conversion of fortune files.
 
   option "with-offensive",
          "Include fortune files containing potentionally offensive cookies"
